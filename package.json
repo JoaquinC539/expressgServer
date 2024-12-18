@@ -1,0 +1,24 @@
+{
+  "name": "expressgserver",
+  "version": "0.0.1",
+  "description": "Express server to behave as an nginx one",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "bundle": "node esbuild.config.js"
+  },
+  "author": "JC",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "archiver": "^7.0.1",
+    "esbuild": "^0.24.0",
+    "fs-extra": "^11.2.0"
+  }
+}

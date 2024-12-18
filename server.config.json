@@ -1,0 +1,7 @@
+{
+    "port":8081,
+    "root":"html",
+    "fallBackToIndex":false,
+    "entryPoint":"index.html",
+    "allowed-origins":["*"]
+}
