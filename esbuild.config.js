@@ -6,6 +6,7 @@ const outputFile="server.js"
 const outputDir="server"
 const configFileName="server.config.json"
 const outputZip="server.zip"
+const outputZipTar="server.tar.gz"
 function zipOutput(){
     const configPath = path.resolve(__dirname, "server.config.json");
     const config=JSON.parse(fs.readFileSync(configPath,"utf-8"))
@@ -28,8 +29,8 @@ function zipOutput(){
     fs.copySync(path.join(__dirname,config["root"]),path.resolve(__dirname,outputDir,config["root"]),{
         overwrite:true
     });
-    const output=fs.createWriteStream(path.join(__dirname,"/",outputZip) );
-    const archive=archiver("zip",{zlib:{level:9}});
+    let output=fs.createWriteStream(path.join(__dirname,"/",outputZip) );
+    let archive=archiver("zip",{zlib:{level:9}});
     output.on("close",()=>{
         console.log(`Archive created: ${outputZip} (${archive.pointer()} bytes)`)
     });    
@@ -43,6 +44,13 @@ function zipOutput(){
     archive.pipe(output);
     archive.directory(outputDir,false);
     archive.finalize();
+
+    output=fs.createWriteStream(path.join(__dirname,"/",outputZipTar) );
+    archive=archiver("tar",{zlib:{level:9}})
+    archive.pipe(output);
+    archive.directory(outputDir,false);
+    archive.finalize();
+    
 }
 
 esbuild.build({
