@@ -1,6 +1,6 @@
 {
   "name": "expressgserver",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Express server to behave as an nginx one",
   "main": "index.js",
   "scripts": {
