@@ -1,7 +1,7 @@
 {
     "port":8081,
-    "root":"html",
-    "fallBackToIndex":false,
+    "root":"./src/html",
+    "fallBackToIndex":true,
     "entryPoint":"index.html",
     "allowed-origins":["*"]
 }
